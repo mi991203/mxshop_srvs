@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 	"mxshop_srvs/user_srv/handler"
+	"mxshop_srvs/user_srv/initialize"
 	"mxshop_srvs/user_srv/proto"
 	"net"
 
@@ -11,6 +12,11 @@ import (
 )
 
 func main() {
+	// 初始化
+	initialize.InitConfig()
+	initialize.InitLogger()
+	initialize.InitDB()
+
 	IP := flag.String("ip", "0.0.0.0", "ip地址")
 	Port := flag.Int("port", 50051, "端口号")
 
